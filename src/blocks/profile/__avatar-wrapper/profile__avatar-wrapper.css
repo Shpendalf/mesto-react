@@ -10,8 +10,6 @@
   background-color: rgba(0, 0, 0, 0.8);
   width: 100%;
   height: 100%;
-  opacity: 1;
-  transition: all 0.3s linear;
   left: 0;
   top: 0;
   content: "";
@@ -24,6 +22,11 @@
   background-position: center;
 }
 
+.profile__avatar-wrapper:hover:before {
+  opacity: 1;
+  transition: all 0.3s linear;
+}
+ 
 .avatar-wrapper {
   width:120px;
   height:120px;
@@ -59,7 +62,3 @@
   -o-transition: all 0.3s linear;
 }
 
-.profile__avatar-wrapper:hover:before {
-  opacity: 1;
-  transition: all 0.3s linear;
-}
