@@ -1,0 +1,29 @@
+.popup__textarea {
+  display: flex;
+  align-self: center;
+  width: 83.25581395348837%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  padding-bottom: 9px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.95px;
+  box-sizing: border-box;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  outline: none;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+@media screen and (max-width: 600px) {
+  .popup__textarea {
+    line-height: 16.94px;
+
+    width: 84.39716312056738%;
+  }
+}

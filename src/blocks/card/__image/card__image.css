@@ -1,0 +1,11 @@
+.card__image {
+  max-width: 282px;
+  height: 282px;
+  object-fit: inherit;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.card__image:hover {
+  cursor: pointer;
+}

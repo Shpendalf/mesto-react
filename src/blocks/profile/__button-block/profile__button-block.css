@@ -1,0 +1,7 @@
+.profile__button-block {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  align-self: center;
+  z-index: 1;
+}
