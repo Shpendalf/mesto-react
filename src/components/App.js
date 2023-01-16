@@ -3,34 +3,35 @@ import '../App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Main from './Main.js';
-import ImagePopup from './ImagePopup';np
+import ImagePopup from './ImagePopup';
 import PopupWithForm from './PopupWithForm';
 import PopupWithImage from './PopupWithImage';
 function App() {
   const[isEditProfilePopupOpen, setProfileModalOpen] = React.useState(false);
   const[isAddPlacePopupOpen, setPlaceModalOpen] = React.useState(false);
   const[isEditAvatarPopupOpen, setAvatarModalOpen] = React.useState(false);
-
+  const[isDeletePopupOpen, setDeletePopupOpen] = React.useState(false);
   const handleEditProfileClick = ()=>{setProfileModalOpen(true)};
   const handleAddPlaceClick =() =>{setPlaceModalOpen(true)};
   const handleEditAvatarClick = () => {setAvatarModalOpen(true)};
-  const [selectedCard, chooseCard] =React.useState({name:'', link:''});
-  const closeAllPopups = () =>{
+  
+  const [selectedCard, selectCard] =React.useState({name:'', link:''});
+  const  closeAllPopups = () =>{
     setProfileModalOpen(false);
     setPlaceModalOpen(false);
     setAvatarModalOpen(false);  
-    chooseCard({name:'',link:''});
+    selectCard({name:'',link:''});
   }
 
-  const handleCardPress = (card) =>{
-    chooseCard(card)
-  }
+  const handleCardClick = (card) => {
+    selectCard(card)
+  };
   return (
     <div className="page">
       <Header/>
       <PopupWithForm name="delete" buttonMsg="Да" text="Вы уверены?"/>
-      <PopupWithImage card = {selectedCard} onCloseHandler={closeAllPopups}/>
-      <PopupWithForm name="profile" buttonMsg="Сохранить" isOpened={isEditProfilePopupOpen} text="Редактировать профиль" onCloseHandler={closeAllPopups}>
+      <PopupWithImage card={selectedCard} onClose={closeAllPopups}/>
+      <PopupWithForm name="profile" buttonMsg="Сохранить" isOpened={isEditProfilePopupOpen} text="Редактировать профиль" onClose={closeAllPopups}>
       <input
             type="text"
             id="name-input"
@@ -53,7 +54,7 @@ function App() {
           <span id="job-input-error" className="popup__error"></span>
 
       </PopupWithForm>
-      <PopupWithForm  name="avatar" buttonMsg ="Сохранить" isOpened={isEditAvatarPopupOpen} text="Редактировать аватар" onCloseHandler={closeAllPopups}>
+      <PopupWithForm  name="avatar" buttonMsg ="Сохранить" isOpened={isEditAvatarPopupOpen} text="Редактировать аватар" onClose={closeAllPopups}>
       <input
             type="url"
             id="avatar-input"
@@ -66,7 +67,7 @@ function App() {
           <span id="avatar-input-error" className="popup__error"></span>
           
       </PopupWithForm>
-      <PopupWithForm name ="img" buttonMsg="Сохранить" isOpened={isAddPlacePopupOpen} text ="Новое место" onCloseHandler={closeAllPopups}>
+      <PopupWithForm name ="img" buttonMsg="Сохранить" isOpened={isAddPlacePopupOpen} text ="Новое место" onClose={closeAllPopups}>
       <input
             type="text"
             placeholder="заголовок"
@@ -91,7 +92,7 @@ function App() {
 
 
 
-    <Main onProfileEdit = {handleEditProfileClick} onAddPlace = {handleAddPlaceClick} onAvatarEdit = {handleEditAvatarClick} cardPress = {handleCardPress}/>
+    <Main onProfileEdit = {handleEditProfileClick} onAddPlace = {handleAddPlaceClick} onAvatarEdit = {handleEditAvatarClick} onCardClick = {handleCardClick}/>
     
     <Footer/>
   </div>
