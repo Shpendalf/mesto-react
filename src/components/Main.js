@@ -15,7 +15,9 @@ function Main(props) {
       setJob (userData.about);
       renderCards(initialCards);
     })
-  })
+    .catch (error => console.log(error))
+  }, []);
+
     return (
 <main className="main">
       <section className="profile">
