@@ -3,7 +3,7 @@ import '../App.css';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Main from './Main.js';
-import ImagePopup from './ImagePopup';
+import ImagePopup from './ImagePopup';np
 import PopupWithForm from './PopupWithForm';
 import PopupWithImage from './PopupWithImage';
 function App() {
