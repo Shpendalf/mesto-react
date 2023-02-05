@@ -17,24 +17,19 @@ export default class Api {
       headers: this._header,
     }).then(this._checkResponse);
   }
-  newLike(id) {
+  newLike(id, likecheck) {
     return fetch(`${this._url}/cards/${id}/likes`, {
-      method: "PUT",
+      method: (likecheck ? "delete": "PUT"),
       headers: this._header,
     }).then(this._checkResponse);
   }
-  newDislike(id) {
-    return fetch(`${this._url}/cards/${id}/likes`, {
-      method: "DELETE",
-      headers: this._header,
-    }).then(this._checkResponse);
-  }
+ 
   _getOwnerInfo() {
     return fetch(`${this._url}/users/me`, {
       headers: this._header,
     }).then(this._checkResponse);
   }
-  createCard({ name, link }) {
+  createCard(name, link) {
     return fetch(`${this._url}/cards`, {
       method: "POST",
       headers: this._header,
@@ -64,11 +59,14 @@ export default class Api {
   getData() {
     return Promise.all([this._getOwnerInfo(), this._getInitialCards()]);
   }
-  setUserInfo({ name, about }) {
+  setUserInfo(name, job) {
     return fetch(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._header,
-      body: JSON.stringify({ name, about }),
+      body: JSON.stringify({
+        'name': name,
+        'about': job
+    })   
     }).then(this._checkResponse);
   }
 }
