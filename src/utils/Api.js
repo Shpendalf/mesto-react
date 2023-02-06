@@ -17,7 +17,7 @@ export default class Api {
       headers: this._header,
     }).then(this._checkResponse);
   }
-  newLike(id, likecheck) {
+  setLike(id, likecheck) {
     return fetch(`${this._url}/cards/${id}/likes`, {
       method: (likecheck ? "delete": "PUT"),
       headers: this._header,
@@ -46,12 +46,12 @@ export default class Api {
       headers: this._header,
     }).then(this._checkResponse);
   }
-  editAvatar(userPic) {
+  editAvatar(data) {
     return fetch(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._header,
       body: JSON.stringify({
-        avatar: userPic,
+        avatar: data.avatar,
       }),
     }) 
     .then(this._checkResponse)  

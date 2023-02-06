@@ -22,7 +22,7 @@ function App() {
   const handleEditAvatarClick = () => {setAvatarModalOpen(true)};
   const [isLoading, setIsLoading] = React.useState(false);
   const [ownerDelCard, setOwnerDelCard] = React.useState({_id:''})
-  const [currentUser, setCurrentUser] = React.useState({name:'', about:'', avatar:'', _id:''});
+  const [currentUser, setCurrentUser] = React.useState({name:'Жак-ив-Кусто', about:'Исследователь океана', avatar:'', _id:''});
   const [selectedCard, selectCard] =React.useState({name:'', link:''});
   const isOpen = (isEditProfilePopupOpen || isAddPlacePopupOpen || isEditAvatarPopupOpen ||isImgPopupOpen || ownerDelCard._id)
   const  closeAllPopups = () =>{
@@ -89,7 +89,7 @@ function App() {
 
   const handleCardLike = (card) => {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
-    api.newLike(card._id, isLiked)
+    api.setLike(card._id, isLiked)
         .then(renderedCard => {
           renderCards((res) => res.map((c) => c._id === card._id ? renderedCard : c));  
         })

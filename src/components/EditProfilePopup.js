@@ -36,6 +36,7 @@ function EditProfilePopup(props) {
               required
               name="profileName"
               onChange={handleNameChange}
+              value ={userName}
             />
             <span id="name-input-error" className="popup__error"></span>
             <input
@@ -47,6 +48,7 @@ function EditProfilePopup(props) {
               required
               name="jobName"
               onChange={handleJobChange}
+              value = {userJob}
             />
             <span id="job-input-error" className="popup__error"></span>
   
