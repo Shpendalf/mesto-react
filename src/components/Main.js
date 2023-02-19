@@ -19,6 +19,7 @@ function Main(props) {
   // }, []);
 
     return (
+      
 <main className="main">
       <section className="profile">
         <div className="profile__left-side">

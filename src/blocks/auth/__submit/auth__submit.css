@@ -1,0 +1,16 @@
+
+.auth__submit{
+    height:50px;
+    width:100%;
+    background-color: white;
+    color:black;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    align-items: center;
+    justify-content:center;
+    
+}
+.auth__submit:hover{
+    opacity:0.6;
+}

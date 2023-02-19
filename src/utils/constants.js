@@ -1,6 +1,7 @@
 export const profileButtonOpen = document.querySelector(
   ".profile__edit-button"
 );
+
 export const popupClasses = document.querySelectorAll(".popup");
 export const popupProfile = document.querySelector(".popup_profile");
 export const popupAddImg = document.querySelector(".popup_img");
@@ -11,7 +12,12 @@ export const profileButtonClose = document.querySelector(
 export const formElementProfile = document.querySelector(
   ".popup__form-profile"
 );
-
+export const SIGN_CONFIG= {
+   url:"https://auth.nomoreparties.co",
+   header: {
+    "Content-Type": "application/json",
+},
+}
 export const API_CONFIG = {
   url: "https://mesto.nomoreparties.co/v1/cohort-54",
 

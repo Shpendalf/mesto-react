@@ -1,0 +1,27 @@
+.auth__email{
+    background:transparent;
+    outline:none;
+    border-bottom:2px solid #ccc;
+    padding-bottom: 13px;
+    margin-bottom:30px;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    width: 100%;
+    display: flex;
+    color:#fff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+}
+    
+
+.auth__email:focus{
+    outline: none;
+}
+.auth__email::placeholder{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color:#CCCCCC;
+}

@@ -1,7 +1,10 @@
 import { API_CONFIG } from "./constants";
+import { SIGN_CONFIG } from "./constants"; 
+console.log(SIGN_CONFIG)
 export default class Api {
   constructor(config) {
     this._url = config.url;
+  
     this._header = config.header;
   }
   _checkResponse(response) {
@@ -69,5 +72,36 @@ export default class Api {
     })   
     }).then(this._checkResponse);
   }
+  signIn(email, password){
+    return fetch (`${this._url}/signin`,{
+    method:"POST",
+    headers: this._header,
+    body:JSON.stringify({
+      password: password,
+      email: email, 
+    })
+    }).then(this._checkResponse);
+  }
+  signUp(email, password){
+    return fetch (`${this._url}/signup`,{
+      method:"POST",
+      headers:this._header,
+      body: JSON.stringify({
+        password: password,
+        email: email,
+   
+      })
+    }).then(this._checkResponse);
+  }
+  checkLogin(token) {
+    return fetch (`${this._url}/users/me`,{
+      method:"GET",
+      headers:{
+        "Content-Type": "application/json",
+        authorization: `Bearer ${token}`,
+      },
+    }).then(this._checkResponse);
+}
 }
 export const api = new Api(API_CONFIG);
+export const auth = new Api(SIGN_CONFIG)
